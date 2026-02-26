@@ -1,44 +1,37 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Shreyan Nursery - Fruit & Flower Plants in Cooch Behar</title>
+<title>Shreyan Nursery</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<meta name="description" content="Buy fresh fruit and flower plants online in Cooch Behar from Shreyan Nursery. Mango, Lemon, Rose, Tulsi and many more plants available.">
-<meta name="keywords" content="Nursery in Cooch Behar, Fruit Plants, Flower Plants, Shreyan Nursery">
-<meta name="author" content="Shreyan Nursery">
-
 <style>
-body{font-family:Arial;margin:0;background:#f2f8f2}
-header{background:#1b5e20;color:white;padding:15px;text-align:center}
-.search{padding:10px;text-align:center}
-input{padding:8px;width:80%;max-width:300px}
-.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:15px;padding:15px}
-.card{background:white;padding:10px;border-radius:10px;text-align:center;box-shadow:0 2px 5px rgba(0,0,0,0.1)}
-img{width:100%;height:150px;object-fit:cover;border-radius:8px}
-button{background:#1b5e20;color:white;border:none;padding:8px;border-radius:5px;margin-top:5px}
-.cart-btn{position:fixed;bottom:20px;right:20px;background:black}
+body{margin:0;font-family:Arial;background:#f3f3f3}
+.header{background:#131921;color:white;padding:15px;text-align:center;font-size:22px;font-weight:bold}
+.searchbar{background:#232f3e;padding:10px;text-align:center}
+.searchbar input{width:85%;padding:8px;border-radius:4px;border:none}
+.products{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:15px;padding:15px}
+.card{background:white;border-radius:8px;padding:10px;box-shadow:0 2px 6px rgba(0,0,0,0.15);text-align:center}
+.card img{width:100%;height:160px;object-fit:cover;border-radius:6px}
+.price{color:#B12704;font-weight:bold}
+button{background:#FFD814;border:none;padding:7px;border-radius:5px;margin-top:5px}
+.cart{position:fixed;bottom:20px;right:20px;background:#131921;color:white;padding:10px 15px;border-radius:50px}
 </style>
 </head>
 
 <body>
 
-<header>
-<h1>🌿8670594745
-  Shreyan Nursery</h1>
-<p>Fresh Fruit & Flower Plants in jatamari Cooch Behar</p>
-</header>
+<div class="header">🌿 Shreyan Nursery - Cooch Behar</div>
 
-<div class="search">
-<input type="text" id="search" placeholder="Search plant..." onkeyup="searchPlant()">
+<div class="searchbar">
+<input type="text" id="search" placeholder="Search plants..." onkeyup="searchProduct()">
 </div>
 
 <div class="products" id="product-list"></div>
 
-<button class="cart-btn" onclick="goToCart()">🛒 Cart (<span id="count">0</span>)</button>
+<div class="cart" onclick="orderNow()">🛒 Cart (<span id="count">0</span>)</div>
 
 <script>
-let products=[let products=[
+
+let products=[
 {id:1,name:"Mango Plant",price:299,image:"mango.jpg"},
 {id:2,name:"Lemon Plant",price:199,image:"lemon.jpg"},
 {id:3,name:"Guava Plant",price:249,image:"guava.jpg"},
@@ -47,7 +40,7 @@ let products=[let products=[
 {id:6,name:"Rose Plant",price:149,image:"rose.jpg"}
 ];
 
-let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let cart=[];
 
 function showProducts(list){
 let container=document.getElementById("product-list");
@@ -56,15 +49,14 @@ list.forEach(p=>{
 container.innerHTML+=`
 <div class="card">
 <img src="${p.image}">
-<h3>${p.name}</h3>
-<p>₹${p.price}</p>
+<h4>${p.name}</h4>
+<p class="price">₹${p.price}</p>
 <button onclick="addToCart(${p.id})">Add to Cart</button>
 </div>`;
 });
-updateCount();
 }
 
-function searchPlant(){
+function searchProduct(){
 let value=document.getElementById("search").value.toLowerCase();
 let filtered=products.filter(p=>p.name.toLowerCase().includes(value));
 showProducts(filtered);
@@ -72,23 +64,19 @@ showProducts(filtered);
 
 function addToCart(id){
 cart.push(products.find(p=>p.id===id));
-localStorage.setItem("cart",JSON.stringify(cart));
-updateCount();
-}
-
-function updateCount(){
 document.getElementById("count").innerText=cart.length;
 }
 
-function goToCart(){
-let message="Order Details:%0A";
+function orderNow(){
+let msg="Order Details:%0A";
 cart.forEach(item=>{
-message+=item.name+" - ₹"+item.price+"%0A";
+msg+=item.name+" - ₹"+item.price+"%0A";
 });
-window.location.href="https://wa.me/918670594745?text="+message;
+window.location.href="https://wa.me/918670594745?text="+msg;
 }
 
 showProducts(products);
+
 </script>
 
 </body>
