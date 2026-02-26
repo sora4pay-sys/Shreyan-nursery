@@ -38,27 +38,13 @@ button{background:#1b5e20;color:white;border:none;padding:8px;border-radius:5px;
 <button class="cart-btn" onclick="goToCart()">🛒 Cart (<span id="count">0</span>)</button>
 
 <script>
-let products=[
-{id:1,name:"Mango Plant",price:299,image:"https://upload.wikimedia.org/wikipedia/commons/9/90/Hapus_Mango.jpg"},
-{id:2,name:"Lemon Plant",price:199,image:"https://upload.wikimedia.org/wikipedia/commons/c/c4/Lemon_tree.jpg"},
-{id:3,name:"Guava Plant",price:249,image:"https://upload.wikimedia.org/wikipedia/commons/0/02/Guava_tree.jpg"},
-{id:4,name:"Banana Plant",price:149,image:"https://upload.wikimedia.org/wikipedia/commons/8/8a/Banana_plant.jpg"},
-{id:5,name:"Pomegranate Plant",price:249,image:"https://upload.wikimedia.org/wikipedia/commons/6/6b/Pomegranate_tree.jpg"},
-{id:6,name:"Rose Plant",price:149,image:"https://upload.wikimedia.org/wikipedia/commons/b/bf/Rose_flower.jpg"},
-{id:7,name:"Hibiscus Plant",price:129,image:"https://upload.wikimedia.org/wikipedia/commons/4/4f/Hibiscus_flower.jpg"},
-{id:8,name:"Tulsi Plant",price:99,image:"https://upload.wikimedia.org/wikipedia/commons/1/1f/Ocimum_tenuiflorum.jpg"},
-{id:9,name:"Aloe Vera",price:149,image:"https://upload.wikimedia.org/wikipedia/commons/4/4b/Aloe_vera_flower.jpg"},
-{id:10,name:"Neem Plant",price:149,image:"https://upload.wikimedia.org/wikipedia/commons/2/27/Neem_tree.jpg"},
-{id:11,name:"Money Plant",price:199,image:"https://upload.wikimedia.org/wikipedia/commons/2/2f/Money_plant.jpg"},
-{id:12,name:"Snake Plant",price:299,image:"https://upload.wikimedia.org/wikipedia/commons/5/5f/Sansevieria_trifasciata.jpg"},
-{id:13,name:"Areca Palm",price:399,image:"https://upload.wikimedia.org/wikipedia/commons/5/58/Areca_palm.jpg"},
-{id:14,name:"Sunflower",price:99,image:"https://upload.wikimedia.org/wikipedia/commons/4/40/Sunflower_sky.jpg"},
-{id:15,name:"Marigold",price:79,image:"https://upload.wikimedia.org/wikipedia/commons/4/4b/Marigold_flower.jpg"},
-{id:16,name:"Orchid",price:499,image:"https://upload.wikimedia.org/wikipedia/commons/3/3c/Orchid_flower.jpg"},
-{id:17,name:"Lily",price:199,image:"https://upload.wikimedia.org/wikipedia/commons/3/32/Lilium_flower.jpg"},
-{id:18,name:"Cactus",price:99,image:"https://upload.wikimedia.org/wikipedia/commons/7/76/Cactus_flower.jpg"},
-{id:19,name:"Mint Plant",price:49,image:"https://upload.wikimedia.org/wikipedia/commons/8/8c/Mentha_spicata.jpg"},
-{id:20,name:"Curry Leaf",price:149,image:"https://upload.wikimedia.org/wikipedia/commons/3/3e/Curry_leaf_tree.jpg"}
+let products=[let products=[
+{id:1,name:"Mango Plant",price:299,image:"mango.jpg"},
+{id:2,name:"Lemon Plant",price:199,image:"lemon.jpg"},
+{id:3,name:"Guava Plant",price:249,image:"guava.jpg"},
+{id:4,name:"Banana Plant",price:149,image:"banana.jpg"},
+{id:5,name:"Apple Plant",price:399,image:"apple.jpg"},
+{id:6,name:"Rose Plant",price:149,image:"rose.jpg"}
 ];
 
 let cart=JSON.parse(localStorage.getItem("cart"))||[];
